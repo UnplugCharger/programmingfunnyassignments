@@ -1,8 +1,8 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 )
@@ -18,6 +18,11 @@ func main() {
 		log.Fatal(err)
 	}
 	defer file.Close()
-	b, err := ioutil.ReadAll(file)
-	fmt.Println(b)
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() { // internally, it advances token based on sperator
+		fmt.Println(scanner.Text()) // token in unicode-char
+
+	}
 }
