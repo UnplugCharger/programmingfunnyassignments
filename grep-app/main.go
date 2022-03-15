@@ -30,5 +30,5 @@ func main() {
 		fmt.Println(scanner.Text()) // token in unicode-char
 
 	}
-	}
+	fmt.Println(searchTerm)
 }
