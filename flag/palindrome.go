@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 )
 
 func main() {
@@ -12,14 +10,11 @@ func main() {
 	var word string
 	fmt.Scanln(&word)
 
-	isPalindrome(word)
+	fmt.Println(isPalindrome(word))
 }
 
-func isPalindrome(s string) string {
+func isPalindrome(s string) bool {
 
-	if len(os.Args) < 1 {
-		log.Println("Please enter a valid string")
-	}
 	reversedStr := ""
 
 	// loop over the string from the last index and append the letters to the empty reversed string
@@ -29,9 +24,9 @@ func isPalindrome(s string) string {
 	}
 	for i := range s {
 		if s[i] != reversedStr[i] {
-			return "is not palindrome"
+			return false
 		}
 	}
 
-	return fmt.Println("is palindrome")
+	return true
 }
